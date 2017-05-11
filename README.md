@@ -84,7 +84,7 @@ Parse a string into its constituent bigrams
 ```
 irb(main):013:0> Retort.parse_bigram "The one and only", identity: { medium: 'test', identifier: 'readme' }
 => [
-{"id"=>3462984, "prior"=>nil, "after"=>"The", "created_at"=>"2017-05-11T14:50:23.961Z", "updated_at"=>"2017-05-11T14:50:23.961Z", "identifier"=>"readme", "medium"=>"test", "channel"=>nil},
+  {"id"=>3462984, "prior"=>nil, "after"=>"The", "created_at"=>"2017-05-11T14:50:23.961Z", "updated_at"=>"2017-05-11T14:50:23.961Z", "identifier"=>"readme", "medium"=>"test", "channel"=>nil},
   [
     {"id"=>3462985, "prior"=>"The", "after"=>"one", "created_at"=>"2017-05-11T14:50:25.054Z", "updated_at"=>"2017-05-11T14:50:25.054Z", "identifier"=>"readme", "medium"=>"test", "channel"=>nil},
     {"id"=>3462986, "prior"=>"one", "after"=>"and", "created_at"=>"2017-05-11T14:50:26.087Z", "updated_at"=>"2017-05-11T14:50:26.087Z", "identifier"=>"readme", "medium"=>"test", "channel"=>nil},
