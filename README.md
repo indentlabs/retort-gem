@@ -4,14 +4,14 @@ This gem wraps the Retort API available at http://www.retort.us.
 
 # How to use
 
-`require 'retort'`
+`require 'retort-api'`
 
 # Example usage
 
 Including the gem
 ```
 ~/Code/indent/retort-gem (master *)$ irb
-irb(main):001:0> require 'retort'
+irb(main):001:0> require 'retort-api'
 => true
 ```
 
