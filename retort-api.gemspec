@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'retort-api'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = '2017-11-05'
   s.summary     = "Wrapper for retort.us Markov generation"
   s.description = "Wrapper for retort.us Markov generation"
