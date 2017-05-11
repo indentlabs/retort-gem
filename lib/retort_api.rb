@@ -1,4 +1,4 @@
-class Retort
+class RetortApi
   require 'httparty'
 
   #TODO: Identity mirroring for most endpoints
