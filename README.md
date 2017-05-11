@@ -8,7 +8,7 @@ Install the gem with `$ gem install retort_api`, then include it in your Ruby fi
 
 `require 'retort_api'`
 
-(or use `gem 'retort_api' in a Gemfile)
+(or use `gem 'retort_api'` in a Gemfile)
 
 # Example usage
 
