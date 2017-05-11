@@ -4,7 +4,11 @@ This gem wraps the Retort API available at http://www.retort.us.
 
 # How to use
 
+Install the gem with `$ gem install retort-api`, then include it in your Ruby file with
+
 `require 'retort-api'`
+
+(or use `gem 'retort-api' in a Gemfile)
 
 # Example usage
 
