@@ -1,7 +1,7 @@
 class RetortApi
   require 'httparty'
 
-  #TODO: Identity mirroring for most endpoints
+  #TODO: Identity mirroring for retort endpoints
   #TODO: Rate limiting as needed
   #TODO: HTTPS on API
   #TODO: Handle failed requests to Retort
@@ -53,43 +53,43 @@ class RetortApi
     ].join).body
   end
 
-  def self.get_word_before after_word
+  def self.get_word_before after_word, identity: {}
     json = JSON.parse HTTParty.get([
       BASE_URL,
       '/bigram/prior',
-      "?after=#{after_word}"
+      "?after=#{after_word}#{parameterize_hash identity}"
     ].join).body
 
     json["prior"]
   end
 
-  def self.get_all_words_before after_word
+  def self.get_all_words_before after_word, identity: {}
     JSON.parse HTTParty.get([
       BASE_URL,
       '/bigram/antecedents',
-      "?after=#{after_word}"
+      "?after=#{after_word}#{parameterize_hash identity}"
     ].join).body
   end
 
-  def self.get_word_after previous_word
+  def self.get_word_after previous_word, identity: {}
     json = JSON.parse HTTParty.get([
       BASE_URL,
       '/bigram/next',
-      "?prior=#{previous_word}"
+      "?prior=#{previous_word}#{parameterize_hash identity}"
     ].join).body
 
     json["after"]
   end
 
-  def self.get_all_words_after previous_word
+  def self.get_all_words_after previous_word, identity: {}
     JSON.parse HTTParty.get([
       BASE_URL,
       '/bigram/consequents',
-      "?prior=#{previous_word}"
+      "?prior=#{previous_word}#{parameterize_hash identity}"
     ].join).body
   end
 
-  def self.add_bigram prior, after, identity: nil
+  def self.add_bigram prior, after, identity: {}
     JSON.parse HTTParty.get([
       BASE_URL,
       '/bigram/add',
@@ -97,7 +97,7 @@ class RetortApi
     ].join).body
   end
 
-  def self.parse_bigram message, identity: nil
+  def self.parse_bigram message, identity: {}
     JSON.parse HTTParty.get([
       BASE_URL,
       '/bigram/parse',
