@@ -1,6 +1,6 @@
 # Retort
 
-This gem wraps the Retort API available at http://www.RetortApi.us.
+This gem wraps the Retort API available at http://www.retort.us.
 
 # How to use
 
