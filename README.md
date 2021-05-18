@@ -21,42 +21,42 @@ irb(main):001:0> require 'retort_api'
 
 Getting a response to a stimulus
 ```
-irb(main):002:0> RetortApi.get_retort stimulus: 'hey'
+irb(main):002:0> RetortApi.get_retort(stimulus: 'hey')
 => "sup"
 ```
 
 Adding a shared response to a stimulus
 ```
-irb(main):003:0> RetortApi.add_retort stimulus: 'hey dogman', response: "I'm more of a catman"
+irb(main):003:0> RetortApi.add_retort(stimulus: 'hey dogman', response: "I'm more of a catman")
 => {"id"=>86, "stimulus"=>"hey dogman", "response"=>"I'm more of a catman", "created_at"=>"2017-05-11T14:45:30.807Z", "updated_at"=>"2017-05-11T14:45:30.807Z"}
 ```
 
 Getting another response to a stimulus
 ```
-irb(main):004:0> RetortApi.get_retort stimulus: 'hey dogman'
+irb(main):004:0> RetortApi.get_retort(stimulus: 'hey dogman')
 => "I'm more of a catman"
 ```
 
 Get a random message that can open a cold conversation
 ```
-irb(main):005:0> RetortApi.get_opening_message
+irb(main):005:0> RetortApi.get_opening_message()
 => "hey man, what's up?"
 ```
 
 Generate a random markov chain, optionally styled to a particular identity
 ```
-irb(main):006:0> RetortApi.markov_chain identity: { medium: 'bible' }
+irb(main):006:0> RetortApi.markov_chain(identity: { medium: 'bible' })
 => "Learn the Nemuelites: of God, keep me back again: wherefore consider, and justice: for morning light."
 
-irb(main):022:0> RetortApi.markov_chain identity: { medium: 'music', channel: 'lyrics', identifier: 'kanyewest' }
+irb(main):022:0> RetortApi.markov_chain(identity: { medium: 'music', channel: 'lyrics', identifier: 'kanyewest' })
 => "Never, ever, never over a spit my mom break it down (get down)."
 ```
 
 Get a random word seen used before "cow"
 ```
-irb(main):007:0> RetortApi.get_word_before 'cow'
+irb(main):007:0> RetortApi.get_word_before('cow')
 => "meaty"
-irb(main):008:0> RetortApi.get_word_before 'cow'
+irb(main):008:0> RetortApi.get_word_before('cow')
 => "Holy"
 ```
 
@@ -68,7 +68,7 @@ irb(main):009:0> RetortApi.get_all_words_before('cow').count
 
 Get a random word seen used after "holy"
 ```
-irb(main):010:0> RetortApi.get_word_after 'holy'
+irb(main):010:0> RetortApi.get_word_after('holy')
 => "shit."
 ```
 
@@ -80,13 +80,13 @@ irb(main):011:0> RetortApi.get_all_words_after('turtles').count
 
 Manually add a bigram to Retort
 ```
-irb(main):012:0> RetortApi.add_bigram 'there', "aren't"
+irb(main):012:0> RetortApi.add_bigram('there', "aren't")
 => {"id"=>2315831, "prior"=>nil, "after"=>nil, "created_at"=>"2016-05-22T08:47:02.840Z", "updated_at"=>"2016-05-22T08:47:02.840Z", "identifier"=>nil, "medium"=>nil, "channel"=>nil}
 ```
 
-Parse a string into its constituent bigrams
+Parse a string into its constituent bigrams (and optionally pass identity information)
 ```
-irb(main):013:0> RetortApi.parse_bigram "The one and only", identity: { medium: 'test', identifier: 'readme' }
+irb(main):013:0> RetortApi.parse_bigram("The one and only", identity: { medium: 'test', identifier: 'readme' })
 => [
   {"id"=>3462984, "prior"=>nil, "after"=>"The", "created_at"=>"2017-05-11T14:50:23.961Z", "updated_at"=>"2017-05-11T14:50:23.961Z", "identifier"=>"readme", "medium"=>"test", "channel"=>nil},
   [
